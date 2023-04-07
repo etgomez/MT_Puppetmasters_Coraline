@@ -2,23 +2,31 @@
 //
 #include <Servo.h>
 
-int button = 2;
+
+const int buttonPin = 7;
+int buttonVal;
+int redLed = 2;
 
 Servo servo_8;
 
 void setup()
 {
+  pinMode(buttonPin, INPUT);
   servo_8.attach(8, 500, 2500);
 }
 
 void loop()
 {
-  if (digitalRead(button) == HIGH) {
+buttonVal = digitalRead(buttonPin);
+
+  if (digitalRead(buttonPin) == HIGH) {
     servo_8.write(180);
+    digitalWrite (redLed, HIGH);
   }
   delay(10); // Delay a little bit to improve simulation performance
 
-  if (digitalRead(button) == LOW) {
+  if (digitalRead(buttonPin) == LOW) {
     servo_8.write(0);
+    digitalWrite (redLed, LOW);
   }
 }
