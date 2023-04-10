@@ -1,20 +1,46 @@
+//dont merge yet
+
 #include <Servo.h>
 
-//still have to hash out some button problems with tape tho
 Servo myservo; 
 const int buttonPin = 2;
+int pos = 0;
+int LEDa = 10;
+int LEDb = 11;
+int LEDc = 12;
+int LEDd = 13;
 
 
 void setup() {
 myservo.attach(9);
 pinMode(buttonPin, INPUT);
+pinMode(LEDa, OUTPUT);
+pinMode(LEDb, OUTPUT);
+pinMode(LEDc, OUTPUT);
+pinMode(LEDd, OUTPUT);
 
 }
 
 void loop() {
+//still working the code out with the servo
+if (digitalRead(myservo) == 0) {
+digitalWrite(LEDa, HIGH);
+digitalWrite(LEDb, HIGH);
+digitalWrite(LEDc, HIGH);
+digitalWrite(LEDd, HIGH);
+  } else {
+digitalWrite(LEDa, LOW);
+digitalWrite(LEDb, LOW);
+digitalWrite(LEDc, LOW);
+digitalWrite(LEDd, LOW);
+
+  }
+
+
   if (digitalRead(buttonPin) == HIGH) {
 myservo.write(0);
   } else {
-myservo.write(180);
+myservo.write(90);
   }
 }
+
