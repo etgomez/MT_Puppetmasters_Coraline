@@ -1,14 +1,14 @@
 #include <Servo.h>
 
 Servo myservo; 
-//int pos = 0;
+int pos = 100;
 const int Servo = 1;
 const int buttonPin = 2;
 //int servoVal;
 int LEDa = 10;
-int LEDb = 11;
-int LEDc = 12;
-int LEDd = 13;
+int LEDb = 4;
+int LEDc = 5;
+int LEDd = 6;
 
 
 void setup() {
@@ -27,13 +27,13 @@ void loop() {
 
 
   if (digitalRead(buttonPin) == HIGH) {
-myservo.write(0);
+myservo.write(100);
 digitalWrite(LEDa, HIGH);
 digitalWrite(LEDb, HIGH);
 digitalWrite(LEDc, HIGH);
 digitalWrite(LEDd, HIGH);
   } else {
-myservo.write(90);
+myservo.write(0);
 digitalWrite(LEDa, LOW);
 digitalWrite(LEDb, LOW);
 digitalWrite(LEDc, LOW);
